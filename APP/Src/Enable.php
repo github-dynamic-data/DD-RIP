@@ -32,11 +32,11 @@ if (defined("DD_RIP_BASE_PATH") === false) {
 	}
 	
 	$appsBase	= realpath(DD_RIP_BASE_PATH . "..") ."/";
-// 	require_once $appsBase."CC/Enable.php";
+	require_once $appsBase."CC/Enable.php";
 // 	require_once $appsBase."CSC/Enable.php";
 	
-// 	$apisBase	= realpath(DD_RIP_BASE_PATH . "../../Apis") ."/";
-// 	require_once $apisBase."KMSApi/Enable.php";
+	$apisBase	= realpath(DD_RIP_BASE_PATH . "../../Apis") ."/";
+	require_once $apisBase."DACApi/Enable.php";
 // 	require_once $apisBase."CMSApi/Enable.php";
 // 	require_once $apisBase."CASApi/Enable.php";
 	
@@ -51,8 +51,8 @@ if (defined("DD_RIP_BASE_PATH") === false) {
 // 	require_once $mtmBase."mtm-redis/Enable.php";
 // 	require_once $mtmBase."mtm-database/Enable.php";
 // 	require_once $mtmBase."mtm-async/Enable.php";
-// 	require_once $mtmBase."mtm-certs/Enable.php";
-// 	require_once $mtmBase."mtm-encrypt/Enable.php";
-// 	require_once $mtmBase."mtm-queues/Enable.php";
-// 	require_once $mtmBase."mtm-ws-socket/Enable.php";
+	require_once $mtmBase."mtm-certs/Enable.php";
+	require_once $mtmBase."mtm-encrypt/Enable.php";
+	require_once $mtmBase."mtm-spreadsheet/Enable.php";
+	require_once $mtmBase."mtm-ws-socket/Enable.php";
 }
