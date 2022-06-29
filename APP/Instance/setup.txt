@@ -1,0 +1,18 @@
+##install on Ubuntu
+
+useradd dd-service
+usermod -L dd-service
+chsh -s /bin/bash dd-service
+
+apt-get install php7.4-cli
+
+setup a new group on the border router called:
+macTelnet
+
+Rights:
+ssh + test
+
+This will be used by the Raspberry pi to get mac telnet access to the devices.
+This is needed because the native mactelnet client cannot authenticate on new versions of ROS
+
+##ssh -p1122 ripService@10.169.65.1

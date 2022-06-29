@@ -1,0 +1,19 @@
+{
+	"name" : "dynamic-data/rip",
+	"type" : "app",
+	"description" : "RouterOS Initial Provisioning",
+	"authors" : [{
+			"name" : "Martin Peter Madsen",
+			"email" : "dev@martinpetermadsen.com",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=7.4.0",
+		"merlinthemagic/mtm-encrypt" : ">=0.0.1",
+		"merlinthemagic/mtm-database" : ">=0.0.1",
+		"dynamic-data/dd-kms" : ">=0.0.1",
+		"dynamic-data/dd-cms" : ">=0.0.1"
+	},
+	"minimum-stability" : "dev"
+}
