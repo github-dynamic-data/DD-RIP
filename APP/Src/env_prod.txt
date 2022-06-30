@@ -1,3 +1,9 @@
 ##General
 dd-app.name=RIP
 dd-app.stage=prod
+
+##APIs
+dd-dac.api.ws.host=dac-eu-1.dynamic-data.io
+dd-dac.api.ws.port=44281
+dd-dac.api.user=C0F9594C-D0FB-7E76-E67A-EE28C9206C4C
+dd-dac.api.pass=d9c78e7302fceba6c7886fea01f96278375b816143ea5aa010a0eebe110ef3d1
