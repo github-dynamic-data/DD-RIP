@@ -156,18 +156,28 @@ class Test extends Base
 						
 						if ($devObj === null) {
 							$devNbr			= $hashTool->getAsInteger(hash("sha256", $label."qefqwegh23hh5hFytdf"), 99999);
-							if ($devNbr < 20000) {
+							if ($devNbr < 6000) {
 								$devNbr		= $hashTool->getAsIntegerV2(hash("sha256", $label."qefqwegh23hh5hFytdf"), 99999);
-								if ($devNbr < 20000) {
-									throw new \Exception("Device Nbr too low");
+								if ($devNbr < 6000) {
+									throw new \Exception("Device Nbr too low: ".$devNbr);
 								}
 							}
 							if ($modelNbr === "RBD52G-5HacD2HnD") {
 								$identity	= "ap-".$devNbr.".lionstripe.com";
+							} elseif (
+								$modelNbr === "CRS326-24S+2Q+"
+								|| $modelNbr === "CRS328-24P-4S+"
+							) {
+								$identity	= "as-".$devNbr.".lionstripe.com";
+							} elseif (
+								$modelNbr === "CCR1036-8G-2S+"
+								|| $modelNbr === "CCR2004-16G-2S+"
+							) {
+								$identity	= "br-".$devNbr.".lionstripe.com";
 							} else {
 								throw new \Exception("Not handled for model: '".$modelNbr."'");
 							}
-							
+
 							$devObj		= $acctObj->addDevice($devTypeObj, $label);
 							$devObj->setIdentity($identity);
 							$devObj->setDisplayName($identity);
@@ -193,13 +203,19 @@ class Test extends Base
 							sleep(2);
 						}
 						
+						$cmdStr		= "/tool fetch url=\"https://".$dacHost."/api/v1/Provisioning/Get/RouterOSv7/RpsInitial/".$devObj->getGuid()."/\"";
+						$cmdStr		.= " port=".$dacPort." mode=https user=\"".getenv("dd-dac.api.user")."\"";
+						$cmdStr		.= " password=\"".getenv("dd-dac.api.pass")."\"";
+						$cmdStr		.= " http-method=get output=file as-value dst-path=flash/RPS/primary.rsc";
+						$ctrlObj->getCmd($cmdStr)->get();
+						
 						//setup martin
 						$username	= "martin_adm";
 						$password	= "TtPr0Me1E@";
-				
+						
 						$cmdStr		= "/user/remove [find where name=\"".$username."\"];";
 						$ctrlObj->getCmd($cmdStr)->get();
-				
+						
 						$cmdStr		= "/user/add name=\"".$username."\" password=\"".$password."\" group=\"full\";";
 						$ctrlObj->getCmd($cmdStr)->get();
 						
@@ -209,11 +225,6 @@ class Test extends Base
 						$cmdStr		= "/user/set [find where name=\"".$username."\"] password=\"".$password."\" disabled=\"yes\";";
 						$ctrlObj->getCmd($cmdStr)->get();
 						
-						$cmdStr		= "/tool fetch url=\"https://".$dacHost."/api/v1/Provisioning/Get/RouterOSv7/RpsInitial/".$devObj->getGuid()."/\"";
-						$cmdStr		.= " port=".$dacPort." mode=https user=\"".getenv("dd-dac.api.user")."\"";
-						$cmdStr		.= " password=\"".getenv("dd-dac.api.pass")."\"";
-						$cmdStr		.= " http-method=get output=file as-value dst-path=flash/RPS/primary.rsc";
-						$ctrlObj->getCmd($cmdStr)->get();
 						
 						$serviceCmds		= array();
 						$serviceCmds[]		= "/ip service set telnet address=127.0.0.1/32 disabled=yes;";
