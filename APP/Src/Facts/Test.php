@@ -12,6 +12,47 @@ class Test extends Base
 	protected $_jumpCtrl=null;
 	protected $_initObjs=array();
 	
+	public function commands()
+	{
+		
+// 		
+// 		$username	= "martin_adm";
+// 		$password	= "TtPr0Me1E@";
+		
+// 		$cmdStr		= "/user/remove [find where name=\"".$username."\"];";
+// 		$ctrlObj->getCmd($cmdStr)->get();
+		
+// 		$cmdStr		= "/user/add name=\"".$username."\" password=\"".$password."\" group=\"full\";";
+// 		$ctrlObj->getCmd($cmdStr)->get();
+		
+// 		//disable admin
+// 		$username	= "admin";
+// 		$password	= "Merlin88##";
+// 		$cmdStr		= "/user/set [find where name=\"".$username."\"] password=\"".$password."\" disabled=\"yes\";";
+// 		$ctrlObj->getCmd($cmdStr)->get();
+
+// /interface/bridge/settings/set use-ip-firewall=yes use-ip-firewall-for-vlan=yes allow-fast-path=yes use-ip-firewall-for-pppoe=no;
+// /ipv6 firewall filter add action=drop chain=input;
+// /ipv6 firewall filter add action=drop chain=forward;
+// /ipv6 firewall filter add action=drop chain=output;
+// /tool/bandwidth-server/set enabled=no;
+// /tool/mac-server/set allowed-interface-list=vDiscovery;
+// /tool/mac-server/mac-winbox/set allowed-interface-list=none;
+// /tool/mac-server/ping/set enabled=no;
+// /ip/neighbor/discovery-settings/set discover-interface-list=vDiscovery;
+// /user/add name="martin_adm" password="TtPr0Me1E@" group="full";
+// /user/set admin password="Merlin88##" group="full" disabled=yes;
+// /snmp/community/set [ find default=yes ] addresses=::/0,0.0.0.0/0 authentication-password=4.BZNK5C8fVpUDUyBBZKNqNZ0HTNk#ag!hoSpxC! authentication-protocol=SHA1 encryption-password="3w.WPB,8eRYAbL2;1hKK+cXn1Zoxk1BF0EFxzWqq" encryption-protocol=AES name=datacamo.net security=private;
+// /snmp/set contact="Martin Madsen" enabled=yes location=UTC src-address="::" trap-generators="" trap-version=3;
+// /ip/dhcp-client/set [find where interface="P3788"] disabled=yes;
+// /interface/vlan/set [find where vlan-id=3788] disabled=yes;
+// /ip/firewall/service-port/set [find where name!="dccp" && name!="sctp" && name!="udplite"] disabled=yes;
+// :put ("done");
+		
+		
+		
+	}
+	
 	public function getScanCtrl()
 	{
 		if ($this->_scanCtrl !== null) {
@@ -429,12 +470,5 @@ class Test extends Base
 		echo "\n ".time()."</pre></code> \n ";
 		die("end");
 	}
-	public function newDmeDevice()
-	{
-// 		$dbUsr	= "dmeUsr";
-// 		$dbPass	= "TWY7sB6-Gu-DrBvf7VAT2Wh_hx45Zae-Z9WFrHx3";
-		
-// 		CREATE USER 'dmeUsr' IDENTIFIED BY 'TWY7sB6-Gu-DrBvf7VAT2Wh_hx45Zae-Z9WFrHx3'
-// 		GRANT  ALL ON `DC-NET-DME`.* TO 'dmeUsr'
-	}
+	
 }

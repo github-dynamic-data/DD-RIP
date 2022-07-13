@@ -53,7 +53,7 @@
 :set ($s->([:len $s])) ":if ([:len [/file find where name=\$path]] > 0) do={";
 :set ($s->([:len $s])) ":do {";
 :set ($s->([:len $s])) ":log info message=(\"Loading Initialization file: '\".\$path.\"'\");";
-:set ($s->([:len $s])) ":set counter 120;";
+:set ($s->([:len $s])) ":set counter 300;";
 :set ($s->([:len $s])) ":set scrJob [:execute script=(\"/import file-name=\".\$path) file=(\$scrNull)];";
 :set ($s->([:len $s])) ":while (\$counter > 0) do={"; ##start while
 :set ($s->([:len $s])) ":set res [/system script job get \$scrJob type];";
