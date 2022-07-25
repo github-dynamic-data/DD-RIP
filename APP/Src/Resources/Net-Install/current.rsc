@@ -38,9 +38,9 @@
 ##build the script line by line
 :local s [:toarray ""];
 :set ($s->([:len $s])) ":global rpsInitRun;";
+:set ($s->([:len $s])) ":global rpsInit;";
 :set ($s->([:len $s])) ":if (\$rpsInitRun != true) do={";
 :set ($s->([:len $s])) ":set rpsInitRun true;";
-:set ($s->([:len $s])) ":global rpsInit;";
 :set ($s->([:len $s])) ":set rpsInit false;";
 :set ($s->([:len $s])) ":local scrJob \"\";";
 :set ($s->([:len $s])) ":local scrNull \"initNull.txt\";";
@@ -53,7 +53,7 @@
 :set ($s->([:len $s])) ":if ([:len [/file find where name=\$path]] > 0) do={";
 :set ($s->([:len $s])) ":do {";
 :set ($s->([:len $s])) ":log info message=(\"Loading Initialization file: '\".\$path.\"'\");";
-:set ($s->([:len $s])) ":set counter 300;";
+:set ($s->([:len $s])) ":set counter 600;";
 :set ($s->([:len $s])) ":set scrJob [:execute script=(\"/import file-name=\".\$path) file=(\$scrNull)];";
 :set ($s->([:len $s])) ":while (\$counter > 0) do={"; ##start while
 :set ($s->([:len $s])) ":set res [/system script job get \$scrJob type];";
@@ -64,6 +64,7 @@
 :set ($s->([:len $s])) ":delay 1s;";
 :set ($s->([:len $s])) "}";
 :set ($s->([:len $s])) "}"; ##end while
+:set ($s->([:len $s])) ":global rpsInit;";
 :set ($s->([:len $s])) ":if (\$rpsInit = true) do={";
 :set ($s->([:len $s])) ":set isDone true;";
 :set ($s->([:len $s])) ":log info (\"RPS init file: '\".\$path.\"' success!\");";
@@ -78,6 +79,7 @@
 :set ($s->([:len $s])) "}";
 :set ($s->([:len $s])) "}";
 :set ($s->([:len $s])) "}";
+:set ($s->([:len $s])) ":global rpsInit;";
 :set ($s->([:len $s])) ":if (\$rpsInit != true) do={";
 :set ($s->([:len $s])) ":log error message=(\"RPS initialization failed!\");";
 :set ($s->([:len $s])) "} else={";

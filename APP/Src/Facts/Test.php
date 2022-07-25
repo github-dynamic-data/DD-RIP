@@ -47,6 +47,9 @@ class Test extends Base
 // /ip/dhcp-client/set [find where interface="P3788"] disabled=yes;
 // /interface/vlan/set [find where vlan-id=3788] disabled=yes;
 // /ip/firewall/service-port/set [find where name!="dccp" && name!="sctp" && name!="udplite"] disabled=yes;
+
+// /interface/wireless/set [find where name="wlan1"] band="2ghz-g/n" frequency="auto" wireless-protocol="802.11" country="portugal" tx-power=10 tx-power-mode=all-rates-fixed
+// /interface/wireless/set [find where name="wlan2"] band="5ghz-n/ac" frequency="auto" wireless-protocol="802.11" country="portugal" channel-width="20/40mhz-XX"
 // :put ("done");
 		
 		
